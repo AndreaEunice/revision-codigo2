@@ -1,23 +1,23 @@
+
 var formulario = document.querySelector("#form")
 
-formulario.onsubmit = function(e) {
+formulario.onsubmit = function(e) { 
 
   e.prevent();
-  
-  var n = formulario.elements[0]
-  var e = formulario.elements[1]
-  var na = formulario.elements[2]
+  // asignarles el valor a las variables del documento HTM en donde se indican con id
+  var n = document.querySelector("#name");
+  var e = document.querySelector("#age");
+  var na = document.querySelector("#nationality");
 
-  var nombre = n.value
-  var edad = e.value
+  var nombre = n.value; // agregarles el ; a todo el documento
+  var edad = e.value;
+  var nacionalidad = na.options[selectedIndex].text;
 
-  var i = na.selectedIndex
-  var nacionalidad = na.options[i].value
-  console.log(nombre, edad)
-  console.log(nacionalidad)
+  console.log(nombre, edad);
+  console.log(nacionalidad);
 
-  if (nombre.length === 0) {
-    n.classList.add("error")
+  if (nombre.length === 0 ) {
+    n.classList.add("error");
   }
   if (edad < 18 || edad > 120) {
     e.classList.add("error")
@@ -28,8 +28,13 @@ if (nombre.length > 0
     && edad < 120) ) {
   agregarInvitado(nombre, edad, nacionalidad)
   }
+};
+
+function agregarInvitado( nombre, edad, nacionalidad ) {
+  var lista = document.getElementById("lista-de-invitados");
 }
 
+// se movio el boton de borrar 
 var botonBorrar = document.createElement("button")
 botonBorrar.textContent = "Eliminar invitado"
 botonBorrar.id = "boton-borrar"
@@ -94,4 +99,5 @@ elementoLista.appendChild(botonBorrar);
 // this.parentNode.style.display = 'none';
 botonBorrar.parentNode.remove()
   }
-}
+};
+
